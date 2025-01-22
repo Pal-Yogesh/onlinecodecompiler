@@ -49,11 +49,11 @@ interface NavBarProps {
 }
 
 const routeList: RouteProps[] = [
-  {
-    href: "#ownapi",
-    label: "Set APIs",
-    route: "/ownapi",
-  },
+  // {
+  //   href: "#ownapi",
+  //   label: "Set APIs",
+  //   route: "/ownapi",
+  // },
   {
     href: "#team",
     label: "Team",
