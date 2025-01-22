@@ -47,7 +47,7 @@ export const Navbar2 = ({
   const [updatefilename, setUpdateFilename] = useState<string>(filename || "");
   const debounced = useDebounceCallback(setUpdateFilename, 1000);
 
-  const Judge0RapidApiKey = localStorage.getItem("NEXT_PUBLIC_RAPID_API_KEY");
+  const Judge0RapidApiKey = localStorage.getItem("NEXT_PUBLIC_RAPID_API_KEY") || process.env.NEXT_PUBLIC_RAPID_API_KEY;
 
   const handleSave = () => {
     if (!session) {
@@ -84,7 +84,7 @@ export const Navbar2 = ({
     const currentLanguage = languageData(language);
     if (!Judge0RapidApiKey) {
       toast.error(
-        "API key is missing. Please add the API key in the settings."
+        "API key is missing. Please add the API key"
       );
       return;
     }

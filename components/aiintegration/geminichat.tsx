@@ -31,7 +31,7 @@ export function Geminichat() {
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const code = useRecoilValue(codeatom).code!!!;
 
-  const genimiApiKey = localStorage.getItem("NEXT_PUBLIC_GEMINI_API_KEY");
+  const genimiApiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY || localStorage.getItem("NEXT_PUBLIC_GEMINI_API_KEY");
 
   const aiapi = async () => {
     const data = {
@@ -73,7 +73,7 @@ export function Geminichat() {
     e.preventDefault();
 
     if(!genimiApiKey){
-      toast.error("Please set the Gemini API URL in the settings");
+      toast.error("Please set the Gemini API Key");
       return;
     }
 
